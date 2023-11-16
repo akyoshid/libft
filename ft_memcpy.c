@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:34:31 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/16 12:42:55 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:18:02 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char	*src_ptr;
 	size_t			i;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	dst_ptr = (unsigned char *)dst;
 	src_ptr = (unsigned char *)src;
 	i = 0;
-	if (dst == NULL && src == NULL)
-		return (NULL);
 	while (i < n)
 	{
 		dst_ptr[i] = src_ptr[i];
