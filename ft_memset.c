@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:00:53 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/16 11:18:55 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:39:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,27 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*ptr;
 	unsigned char	ch;
+	size_t			i;
 
 	ptr = (unsigned char *)b;
 	ch = (unsigned char)c;
-	while (len > 0)
+	i = 0;
+	while (i < len)
 	{
-		*ptr = c;
-		ptr++;
-		len--;
+		ptr[i] = c;
+		i++;
 	}
 	return (b);
 }
+
+// int	main(void)
+// {
+// 	unsigned char	str1[11] = "0123456789";
+// 	unsigned char	str2[11] = "0123456789";
+
+// 	ft_memset(str1, 256 + 'a', 5);
+// 	memset(str2, 256 + 'a', 5);
+// 	printf("%s\n", str1);
+// 	printf("%s\n", str2);
+// 	return (0);
+// }
