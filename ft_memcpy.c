@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:34:31 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/16 12:33:29 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:42:55 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,8 @@
 // Applications in which dst and src might overlap should use memmove instead.
 // ## RETURN VALUES
 // The memcpy() function returns the original value of dst.
-
-// ## Overlap Problem in `memcpy`
-// ```sql
-// - Initial Memory State:
-//   [a, b, c, d, e, f, g, h, i, j]
-//    |  |  |  |  |  |  |  |  |  |
-//    0  1  2  3  4  5  6  7  8  9  (Indices)
-
-// - Intention is to `memcpy` from index 1 to index 4.
-
-// 1. First step of `memcpy` (copying b, c, d):
-//   [a, b, c, d, b, c, d, h, i, j]
-//    |  |  |  |  |  |  |  |  |  |
-//    0  1  2  3  4  5  6  7  8  9  (Indices)
-// 			   |  |  |
-// 			   b  c  d   (Copied over e, f, and g)
-
-// - Original values of 'e', 'f' and 'g' at indices 4, 5 and 6 are lost.
-
-// 2. Continuing `memcpy` (attempting to copy e, f, g):
-//   [a, b, c, d, b, c, d, b, c, d]
-//    |  |  |  |  |  |  |  |  |  |
-//    0  1  2  3  4  5  6  7  8  9  (Indices)
-// 						   |  |  |
-// 						   b  c  d (Copied over h, i, and j)
-
-// 3. Final Corrupted Memory State:
-//   [a, b, c, d, b, c, d, b, c, d]
-//    |  |  |  |  |  |  |  |  |  |
-//    0  1  2  3  4  5  6  7  8  9  (Indices)
-
-// 4. Intended Memory State:
-//   [a, b, c, d, b, c, d, e, f, g]
-//    |  |  |  |  |  |  |  |  |  |
-//    0  1  2  3  4  5  6  7  8  9  (Indices)
-// ```
+// ## Caution
+// If both of dst and src are NULL, memcpy() returns NULL.
 
 #include "libft.h"
 
