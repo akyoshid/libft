@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:21:05 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/16 11:41:18 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:07:40 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ## DESCRIPTION
+// === DESCRIPTION ===
 // The bzero() function writes n zeroed bytes to the string s.
 // If n is zero, bzero() does nothing.
 
@@ -44,4 +44,3 @@ void	ft_bzero(void *s, size_t n)
 // 	printf("\n");
 // 	return (0);
 // }
-

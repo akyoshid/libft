@@ -6,19 +6,18 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:25:11 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/16 13:48:00 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:09:09 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ## Behavior
-// -  Copy up to `dstsize-1` bytes from `src` to `dst`.
-// -  The copied string in `dst` will always be NULL-terminated
-//    (if `dstsize` is not 0).
-// -  The return value is the length of `src`, not including `'\0'`.
-// -  If the return value is >= `dstsize`, it means that truncation occurred.
-// -  If the size n is 0, no copying will be done to `dst`.
-// ## Caution
-// -  if (dstsize <= 0) → Just return the length of src.
+// === BEHAVIOR ===
+// Copy up to dstsize-1 bytes from src to dst.
+// The copied string in dst will always be NULL-terminate.
+// If (dstsize <= 0) → Just return the length of src.
+
+// === RETURN VALUE ===
+// The return value is the length of src, not including '\0'.
+// If the return value is >= dstsize, it means that truncation occurred.
 
 #include "libft.h"
 

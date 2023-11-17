@@ -6,20 +6,16 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:00:53 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/16 11:39:32 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:08:58 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ## Description
+// === DESCRIPTION ===
 // The memset() function writes len bytes of value c
 // (converted to an unsigned char) to the string b.
-// ## Return Value
-// The memset() function returns its first argument.
-// ## Why we use unsigned char
-// Because unsigned char is a binary safe data type.
-// 1. No padding bits
-// 2. Not violating the "aliasing rules".
-// 3. No sign
+
+// === WHY WE USE UNSIGNED CHAR FOR MEMORY OPERATION? ===
+// Because unsigned char is the only binary-safe data type.
 
 #include "libft.h"
 
