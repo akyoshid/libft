@@ -6,17 +6,18 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:38:11 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/16 13:02:40 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:08:44 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ## DESCRIPTION
+// === DESCRIPTION ===
 // The memmove() function copies len bytes from string src to string dst.
-// The two strings may overlap;
-// the copy is always done in a non-destructive manner.
-// ## RETURN VALUES
-// The memmove() function returns the original value of dst.
-// ## How to solve the problem of overlap
+// Even if two strings overlap, they will be safely copied.
+
+// === BEHAVIOR ===
+// If both of dst and src are NULL, memcpy() returns NULL.
+
+// === HOW TO SOLVE THE PROBLEM OF OVERLAP ===
 // if (dst <= src) → Copy in order from the front. (Same as memcpy)
 // if (dst > src) → Copy in order from the back.
 

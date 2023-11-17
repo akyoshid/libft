@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:21:05 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/17 20:11:11 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:07:40 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ## DESCRIPTION
+// === DESCRIPTION ===
 // The bzero() function writes n zeroed bytes to the string s.
 // If n is zero, bzero() does nothing.
 
