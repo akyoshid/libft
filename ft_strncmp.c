@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 10:31:07 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/18 13:00:23 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/18 13:13:23 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-int	main(void)
-{
-	char	str1[] = "abc\200";
-	char	str2[] = "abc";
+// int	main(void)
+// {
+// 	char	str1[] = "abc\200";
+// 	char	str2[] = "abc";
 
-	printf("%d\n", ft_strncmp(str1, str2, 5));
-	printf("%d\n", strncmp(str1, str2, 5));
-	return (0);
-}
+// 	printf("%d\n", ft_strncmp(str1, str2, 5));
+// 	printf("%d\n", strncmp(str1, str2, 5));
+// 	return (0);
+// }
