@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 10:31:07 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/18 11:24:10 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/18 12:04:28 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 // === RETURN VALUES ===
 // Return s1 - s2.
-// If s1 and s2 have the same characters, return 0.
+// If s1 and s2 are identical, return 0.
 // Use unsigned characters for comparison, so that ‘\200’ is greater than ‘\0’.
 
 #include "libft.h"
