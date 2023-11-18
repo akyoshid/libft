@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 13:38:08 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/18 14:14:33 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:47:35 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 // if needle occurs nowhere in haystack, NULL is returned;
 // otherwise a pointer to the first occurrence of the needle is returned.
 
+// === CAUTION ===
+// strnstr(NULL, "42", 0)) will not cause a segfault
+// because more than len characters are not searched.
+
 #include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
@@ -30,45 +34,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (needle[0] == '\0')
 		return ((char *)haystack);
 	i = 0;
-	while (haystack[i] != '\0')
+	while (i < len && haystack[i] != '\0')
 	{
 		j = 0;
-		while (haystack[i + j] == needle[j])
-		{
-			j++;
-			if (needle[j] != '\0')
-				return ((char *)haystack + i);
-		}
-	}
-	return (NULL);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while ((i < len) && (haystack[i] != '\0'))
-	{
-		j = 0;
-		while (haystack[i + j] == needle[j]
-			&& haystack[i + j] != '\0' && (i + j) < len)
+		while (i + j < len && haystack[i + j] != '\0'
+			&& haystack[i + j] == needle[j])
 		{
 			j++;
 			if (needle[j] == '\0')
@@ -84,10 +54,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 // 	// char	str1[] = "abcdefg";
 // 	// char	str2[] = "def";
 // 	// char	str3[] = "abbbcdefg";
-// 	char	*empty = "";
 
-// 	// printf("%p\n", (void *)ft_strnstr(str1, str2, 6));
-// 	// printf("%p\n", (void *)strnstr(str1, str2, 6));
+// 	printf("%p\n", (void *)ft_strnstr(str1, str2, 6));
+// 	printf("%p\n", (void *)strnstr(str1, str2, 6));
 // 	// printf("%p\n", (void *)ft_strnstr(str1, str2, 5));
 // 	// printf("%p\n", (void *)strnstr(str1, str2, 5));
 // 	// printf("%p\n", (void *)ft_strnstr(NULL, str2, 5));
@@ -96,13 +65,13 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 // 	// printf("%p\n", (void *)strnstr(str1, NULL, 5));
 // 	// printf("%p\n", (void *)ft_strnstr(str1, str2, 0));
 // 	// printf("%p\n", (void *)strnstr(str1, str2, 0));
-// 	// printf("%p\n", (void *)ft_strnstr(NULL, "is", 0));
-// 	// printf("%p\n", (void *)strnstr(NULL, "is", 0));
-// 	// printf("%p\n", (void *)ft_strnstr(str3, "bbc", 20));
-// 	// printf("%p\n", (void *)strnstr(str3, "bbc", 20));
-// 	// printf("%p\n", (void *)ft_strnstr("", "bbc", 2));
-// 	// printf("%p\n", (void *)strnstr("", "bbc", 2));
-// 	printf("%p\n", (void *)ft_strnstr(empty, "coucou", -1));
-// 	// printf("%p\n", (void *)strnstr(empty, "coucou", -1));
+// 	// printf("%p\n", (void *)ft_strnstr(NULL, "42", 0));
+// 	// printf("%p\n", (void *)strnstr(NULL, "42", 0));
+// 	// printf("%p\n", (void *)ft_strnstr(str3, "42", 20));
+// 	// printf("%p\n", (void *)strnstr(str3, "42", 20));
+// 	// printf("%p\n", (void *)ft_strnstr("", "42", 2));
+// 	// printf("%p\n", (void *)strnstr("", "42", 2));
+// 	// printf("%p\n", (void *)ft_strnstr("", "42", -1));
+// 	// printf("%p\n", (void *)strnstr("", "42", -1));
 // 	return (0);
 // }
