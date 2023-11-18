@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 10:31:07 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/18 13:13:23 by akyoshid         ###   ########.fr       */
+/*   Created: 2023/11/18 11:28:00 by akyoshid          #+#    #+#             */
+/*   Updated: 2023/11/18 13:12:53 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // === DESCRIPTION ===
-// Compare the null-terminated strings s1 and s2 not more than n characters.
-// Characters that appear after a ‘\0’ character are not compared.
+// Compare byte string s1 against byte string s2.
+// Both strings are assumed to be n bytes long.
 
 // === RETURN VALUES ===
 // Return s1 - s2.
 // If s1 and s2 are identical, return 0.
 // Use unsigned characters for comparison, so that ‘\200’ is greater than ‘\0’.
+// This behavior is not required by C
+// and portable code should only depend on the sign of the returned value.
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	const unsigned char	*p1;
+	const unsigned char	*p2;
 	size_t				i;
 
-	str1 = (const unsigned char *)s1;
-	str2 = (const unsigned char *)s2;
+	p1 = (const unsigned char *)s1;
+	p2 = (const unsigned char *)s2;
 	i = 0;
 	while (i < n)
 	{
-		if (str1[i] != str2[i])
-			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
-		if (str1[i] == '\0')
-			break ;
+		if (p1[i] != p2[i])
+			return (p1[i] - p2[i]);
 		i++;
 	}
 	return (0);
@@ -43,10 +43,10 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 // int	main(void)
 // {
-// 	char	str1[] = "abc\200";
-// 	char	str2[] = "abc";
+// 	char	str1[8] = "abcdefg\200";
+// 	char	str2[8] = "abcdefg";
 
-// 	printf("%d\n", ft_strncmp(str1, str2, 5));
-// 	printf("%d\n", strncmp(str1, str2, 5));
+// 	printf("%d\n", ft_memcmp(str1, str2, 8));
+// 	printf("%d\n", memcmp(str1, str2, 8));
 // 	return (0);
 // }
