@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 07:53:01 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/19 09:44:51 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/19 09:45:44 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 // The allocated memory is filled with bytes of value zero.
 
 // === CAUTION ===
-// Be careful of the behavior when count * size overflows the size_t type.
 // if (count == 0 || size == 0) → Return 1 byte of memory initialized to 0.
 // If count * size exceeds SIZE_MAX → Return NULL.
 
