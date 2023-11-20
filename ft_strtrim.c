@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:22:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 12:10:58 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:19:09 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // with the characters specified in ’set’ removed
 // from the beginning and the end of the string
 
-// setがempty stringの時どうする？
+// setがempty stringの時、s1のコピーを返す
 // 全部setだった場合は、空の文字列を返す
 
 #include "libft.h"
@@ -38,6 +38,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	start;
 	size_t	end;
 
+	if (s1 == NULL)
+		return (NULL);
+	if (set == NULL)
+		return (ft_strdup(s1));
 	s1_len = ft_strlen(s1);
 	start = 0;
 	while (ft_isset(s1[start], set) && start < s1_len)
@@ -53,51 +57,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(buff, s1 + start, end - start + 2);
 	return (buff);
 }
-
-int	main(void)
-{
-	printf("%s",ft_strtrim("abcxyz", "az"));
-	return (0);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// static int	ft_findchar(const char *s, const int c)
-// {
-// 	char	ch;
-
-// 	ch = (char)c;
-// 	while (1)
-// 	{
-// 		if (*s == ch)
-// 			return (1);
-// 		if (*s == '\0')
-// 			return (0);
-// 		s++;
-// 	}
-// }
 
 // char	*ft_strtrim(char const *s1, char const *set)
 // {
