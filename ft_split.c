@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 16:29:49 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:27:50 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,15 @@ static void	ft_storeword(char **p, const char *s, char c, int wordcount)
 		{
 			p[i] = malloc((word_len + 1) * sizeof(char));
 			if (p[i] == NULL)
-			{
-				ft_freemem(p, i);
-				return ;
-			}
+				return ((void)ft_freemem(p, i));
 			ft_strlcpy(p[i], s - word_len, word_len + 1);
 			i++;
 		}
 	}
 }
 
+// When malloc fails in ft_storeword,
+// it will end up manipulating the value of buff[wordcount] after freeing it.
 char	**ft_split(char const *s, char c)
 {
 	char	**buff;
@@ -184,18 +183,18 @@ char	**ft_split(char const *s, char c)
 // 	return (buff);
 // }
 
-// int	main(void)
-// {
-// 	char	**ptr;
+int	main(void)
+{
+	char	**ptr;
 
-// 	ptr = ft_split("aaa  aaa", ' ');
-// 	while (*ptr != NULL)
-// 	{
-// 		printf("%s\n", *ptr);
-// 		ptr++;
-// 	}
-// 	return (0);
-// }
+	ptr = ft_split("aaa  aaa", ' ');
+	while (*ptr != NULL)
+	{
+		printf("%s\n", *ptr);
+		ptr++;
+	}
+	return (0);
+}
 
 ////////////////
 
