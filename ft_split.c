@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 21:27:50 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:55:44 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	ft_countword(const char *s, char c)
 
 // This is a function that fixes the possibility of
 // unnecessary memory allocation at the index that should be NULL-terminated.
-static void	ft_storeword(char **p, const char *s, char c, int wordcount)
+static char	**ft_storeword(char **p, const char *s, char c, int wordcount)
 {
 	int		i;
 	int		word_len;
@@ -76,15 +76,16 @@ static void	ft_storeword(char **p, const char *s, char c, int wordcount)
 		{
 			p[i] = malloc((word_len + 1) * sizeof(char));
 			if (p[i] == NULL)
-				return ((void)ft_freemem(p, i));
+				return (ft_freemem(p, i));
 			ft_strlcpy(p[i], s - word_len, word_len + 1);
 			i++;
 		}
 	}
+	return (p);
 }
 
-// When malloc fails in ft_storeword,
-// it will end up manipulating the value of buff[wordcount] after freeing it.
+// This is a function that fixes the possibility to manipulate the value
+// of buff[wordcount] after freeing it When malloc fails in ft_storeword.
 char	**ft_split(char const *s, char c)
 {
 	char	**buff;
@@ -96,8 +97,8 @@ char	**ft_split(char const *s, char c)
 	buff = malloc((wordcount + 1) * sizeof(char *));
 	if (buff == NULL)
 		return (NULL);
-	ft_storeword(buff, s, c, wordcount);
-	buff[wordcount] = NULL;
+	if ((ft_storeword(buff, s, c, wordcount)) != NULL)
+		buff[wordcount] = NULL;
 	return (buff);
 }
 
