@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 21:55:44 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 22:08:49 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 // === RETURN VALUE ===
 // if (s == NULL) → Return NULL
-// if (ft_wordcount == 0)
 
 #include "libft.h"
 
@@ -54,8 +53,6 @@ static int	ft_countword(const char *s, char c)
 	return (count);
 }
 
-// This is a function that fixes the possibility of
-// unnecessary memory allocation at the index that should be NULL-terminated.
 static char	**ft_storeword(char **p, const char *s, char c, int wordcount)
 {
 	int		i;
@@ -84,8 +81,6 @@ static char	**ft_storeword(char **p, const char *s, char c, int wordcount)
 	return (p);
 }
 
-// This is a function that fixes the possibility to manipulate the value
-// of buff[wordcount] after freeing it When malloc fails in ft_storeword.
 char	**ft_split(char const *s, char c)
 {
 	char	**buff;
@@ -184,25 +179,9 @@ char	**ft_split(char const *s, char c)
 // 	return (buff);
 // }
 
-int	main(void)
-{
-	char	**ptr;
-
-	ptr = ft_split("aaa  aaa", ' ');
-	while (*ptr != NULL)
-	{
-		printf("%s\n", *ptr);
-		ptr++;
-	}
-	return (0);
-}
-
-////////////////
-
-
 // int	main(void)
 // {
-// 	char	str[] = "AAbbBBbbCC";
+// 	char	str[] = "bbbb";
 // 	char	c = 'b';
 // 	char	**ptr;
 // 	int		i;
@@ -210,7 +189,7 @@ int	main(void)
 
 // 	ptr = ft_split(str, c);
 // 	i = 0;
-// 	str_count = ft_countstr(str, c);
+// 	str_count = ft_countword(str, c);
 // 	while (i < str_count + 1)
 // 	{
 // 		printf("%s\n", ptr[i]);
