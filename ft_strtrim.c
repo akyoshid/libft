@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:22:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 11:51:25 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:05:17 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // from the beginning and the end of the string
 
 // setがempty stringの時どうする？
+// 全部setだった場合は、空の文字列を返す
 
 #include "libft.h"
 
@@ -33,13 +34,17 @@ static size_t	ft_isset(const char c, const char *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	// char	*buff;
+	size_t	s1_len;
 	size_t	start;
 	size_t	end;
 
+	s1_len = ft_strlen(s1);
 	start = 0;
-	while (ft_isset(s1[start], set))
+	while (ft_isset(s1[start], set) && start < s1_len)
 		start++;
-	end = ft_strlen(s1) - 1;
+	if (start == s1_len)
+		return (ft_calloc(1, 1));
+	end = s1_len - 1;
 	while (ft_isset(s1[end], set))
 		end--;
 	printf("%zu\n", end);
@@ -48,7 +53,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	ft_strtrim("abcxyz", "z");
+	printf("%s",ft_strtrim("abcxyz", "abcxyz"));
 	return (0);
 }
 
