@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 13:14:29 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:05:16 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@
 // if (ft_wordcount == 0)
 
 #include "libft.h"
+
+static char	**ft_freemem(char **p, int count)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		free(p[i]);
+		p[i] = NULL;
+		i++;
+	}
+	free(p);
+	p = NULL;
+	return (p);
+}
 
 static int	ft_countword(const char *s, char c)
 {
@@ -38,45 +54,51 @@ static int	ft_countword(const char *s, char c)
 	return (count);
 }
 
+// 本来NULL止めすべきインデックスで、余計な動的メモリ確保をする可能性がある。
+static void	ft_storeword(char **p, const char *s, char c)
+{
+	int		i;
+	int		word_len;
+
+	i = 0;
+	while (*s != '\0')
+	{
+		word_len = 0;
+		while (*s != '\0' && *s == c)
+			s++;
+		while (*s != '\0' && *s != c)
+		{
+			s++;
+			word_len++;
+		}
+		p[i] = malloc((word_len + 1) * sizeof(char));
+		if (p[i] == NULL)
+		{
+			ft_freemem(p, i);
+			return ;
+		}
+		ft_strlcpy(p[i], s - word_len, word_len + 1);
+		i++;
+	}
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**buff;
+	int		wordcount;
 
 	if (s == NULL)
 		return (NULL);
-	buff = malloc((ft_countword(s, c) + 1) * sizeof(char *));
+	wordcount = ft_countword(s, c);
+	buff = malloc((wordcount + 1) * sizeof(char *));
 	if (buff == NULL)
 		return (NULL);
-	
+	ft_storeword(buff, s, c);
+	buff[wordcount] = NULL;
+	return (buff);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//////////////////
 
 // static void	*ft_freemem(char **buff, int last_index)
 // {
@@ -157,6 +179,22 @@ char	**ft_split(char const *s, char c)
 // 	buff[str_count] = NULL;
 // 	return (buff);
 // }
+
+// int	main(void)
+// {
+// 	char	**ptr;
+
+// 	ptr = ft_split("aaa  aaa", ' ');
+// 	while (*ptr != NULL)
+// 	{
+// 		printf("%s\n", *ptr);
+// 		ptr++;
+// 	}
+// 	return (0);
+// }
+
+////////////////
+
 
 // int	main(void)
 // {
