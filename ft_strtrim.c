@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:22:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 12:05:17 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:10:58 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_isset(const char c, const char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	// char	*buff;
+	char	*buff;
 	size_t	s1_len;
 	size_t	start;
 	size_t	end;
@@ -47,13 +47,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = s1_len - 1;
 	while (ft_isset(s1[end], set))
 		end--;
-	printf("%zu\n", end);
-	return (NULL);
+	buff = malloc((end - start + 2) * sizeof(char));
+	if (buff == NULL)
+		return (NULL);
+	ft_strlcpy(buff, s1 + start, end - start + 2);
+	return (buff);
 }
 
 int	main(void)
 {
-	printf("%s",ft_strtrim("abcxyz", "abcxyz"));
+	printf("%s",ft_strtrim("abcxyz", "az"));
 	return (0);
 }
 
