@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:22:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 11:38:27 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:51:25 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	// char	*buff;
 	size_t	start;
-	// size_t	end;
+	size_t	end;
 
 	start = 0;
 	while (ft_isset(s1[start], set))
 		start++;
-	printf("%zu\n", start);
+	end = ft_strlen(s1) - 1;
+	while (ft_isset(s1[end], set))
+		end--;
+	printf("%zu\n", end);
 	return (NULL);
 }
 
 int	main(void)
 {
-	ft_strtrim("abcxyz", "abc");
+	ft_strtrim("abcxyz", "z");
 	return (0);
 }
 
