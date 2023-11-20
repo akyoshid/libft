@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:22:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/20 11:35:57 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:38:27 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #include "libft.h"
 
-static int	ft_isset(const char c, const char *set)
+static size_t	ft_isset(const char c, const char *set)
 {
 	while (*set != '\0')
 	{
@@ -30,22 +30,22 @@ static int	ft_isset(const char c, const char *set)
 	return (0);
 }
 
-// char	*ft_strtrim(char const *s1, char const *set)
-// {
-// 	char	*buff;
-// 	size_t	start;
-// 	size_t	end;
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	// char	*buff;
+	size_t	start;
+	// size_t	end;
 
-// 	start = 0;
-// 	while (ft_isset(s1[start]))
-// 		start++;
-// 	printf("%d\n", start);
-// }
+	start = 0;
+	while (ft_isset(s1[start], set))
+		start++;
+	printf("%zu\n", start);
+	return (NULL);
+}
 
 int	main(void)
 {
-	printf("%d\n", ft_isset('a', "abcde"));
-	printf("%d\n", ft_isset('z', "abcde"));
+	ft_strtrim("abcxyz", "abc");
 	return (0);
 }
 
