@@ -6,14 +6,15 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:09:51 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/21 19:57:44 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:15:53 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // === DESCRIPTION ===
-// Applies the function ’f’ to each character of the string ’s’,
-// and passing its index as first argument
-// to create a new string resulting from successive applications of ’f’
+// Creates a new string by repeatedly applying 'f' to each character of 's'.
+// The function 'f' use index of string 's' as the first argument.
+// Map is a way to store data by pairing a key with a value
+// and using the key to access and modify the value.
 
 // === RETURN VALUE ===
 // if (s == NULL || f == NULL) → Return NULL.
