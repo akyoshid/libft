@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/21 14:23:16 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:17:04 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 #include "libft.h"
 
-static int	ft_countword(const char *s, char c)
+static int	ft_countword(char const *s, char c)
 {
 	int	count;
 
@@ -37,54 +37,72 @@ static int	ft_countword(const char *s, char c)
 	return (count);
 }
 
-// char	**ft_split(char const *s, char c)
-// {
-// 	char	**buff;
-// 	int		wordcount;
+static char	*ft_storeword(char const **s, char c)
+{
+	char	*temp;
+	int		len;
 
-// 	if (s == NULL)
-// 		return (NULL);
-// 	wordcount = ft_countword(s, c);
-// 	buff = malloc((wordcount + 1) * sizeof(char *));
-// 	if (buff == NULL)
-// 		return (NULL);
-		
-// }
+	len = 0;
+	while (**s != '\0' && **s != c)
+	{
+		len++;
+		(*s)++;
+	}
+	temp = malloc((len + 1) * sizeof(char));
+	if (temp == NULL)
+		return (NULL);
+	ft_strlcpy(temp, *s - len, len + 1);
+	return (temp);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**buff;
+	int		wordcount;
+	int		i;
+
+	if (s == NULL)
+		return (NULL);
+	wordcount = ft_countword(s, c);
+	buff = malloc((wordcount + 1) * sizeof(char *));
+	if (buff == NULL)
+		return (NULL);
+	i = 0;
+	while (*s != '\0')
+	{
+		while (*s != '\0' && *s == c)
+			s++;
+		if (*s != '\0')
+		{
+			buff[i] = ft_storeword(&s, c);
+			// if (buff[i] == NULL)
+				// return (ft_freemem(buff, i));
+		}
+		i++;
+	}
+	buff[i] = NULL;
+	return (buff);
+}
 
 int	main(void)
 {
-	printf("%d\n", ft_countword("", '-'));
-	printf("%d\n", ft_countword("----", '-'));
-	printf("%d\n", ft_countword("--aa--", '-'));
-	printf("%d\n", ft_countword("--aa", '-'));
-	printf("%d\n", ft_countword("aa--", '-'));
-	printf("%d\n", ft_countword("aa--aa", '-'));
-	printf("%d\n", ft_countword("--aa--aa", '-'));
-	printf("%d\n", ft_countword("aa--aa--", '-'));
-	printf("%d\n", ft_countword("--aa--aa--", '-'));
-	printf("%d\n", ft_countword("aa--aa--aa", '-'));
+	char	str[] = "---abc--xyz---";
+	char	c = '-';
+	char	**ptr;
+	int		i;
+	int		str_count;
+
+	ptr = ft_split(str, c);
+	i = 0;
+	str_count = ft_countword(str, c);
+	while (i < str_count + 1)
+	{
+		printf("%s\n", ptr[i]);
+		i++;
+	}
+	// ft_freemem(ptr, str_count);
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	char	str[] = "bbbb";
-// 	char	c = 'b';
-// 	char	**ptr;
-// 	int		i;
-// 	int		str_count;
-
-// 	ptr = ft_split(str, c);
-// 	i = 0;
-// 	str_count = ft_countword(str, c);
-// 	while (i < str_count + 1)
-// 	{
-// 		printf("%s\n", ptr[i]);
-// 		i++;
-// 	}
-// 	ft_freemem(ptr, str_count);
-// 	return (0);
-// }
 
 // int	main(void)
 // {
