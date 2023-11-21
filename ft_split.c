@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/21 15:17:04 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:28:08 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@
 // if (s == NULL) → Return NULL
 
 #include "libft.h"
+
+static char	**ft_freemem(char **p, int last_index)
+{
+	int	i;
+
+	i = 0;
+	while (i < last_index)
+	{
+		free(p[i]);
+		p[i] = NULL;
+		i++;
+	}
+	free(p);
+	p = NULL;
+	return (NULL);
+}
 
 static int	ft_countword(char const *s, char c)
 {
@@ -75,10 +91,10 @@ char	**ft_split(char const *s, char c)
 		if (*s != '\0')
 		{
 			buff[i] = ft_storeword(&s, c);
-			// if (buff[i] == NULL)
-				// return (ft_freemem(buff, i));
+			if (buff[i] == NULL)
+				return (ft_freemem(buff, i));
+			i++;
 		}
-		i++;
 	}
 	buff[i] = NULL;
 	return (buff);
@@ -90,17 +106,17 @@ int	main(void)
 	char	c = '-';
 	char	**ptr;
 	int		i;
-	int		str_count;
+	int		word_count;
 
 	ptr = ft_split(str, c);
 	i = 0;
-	str_count = ft_countword(str, c);
-	while (i < str_count + 1)
+	word_count = ft_countword(str, c);
+	while (i < word_count + 1)
 	{
 		printf("%s\n", ptr[i]);
 		i++;
 	}
-	// ft_freemem(ptr, str_count);
+	ft_freemem(ptr, word_count);
 	return (0);
 }
 
