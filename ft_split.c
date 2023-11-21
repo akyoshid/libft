@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/21 15:28:08 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:31:11 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,25 +100,25 @@ char	**ft_split(char const *s, char c)
 	return (buff);
 }
 
-int	main(void)
-{
-	char	str[] = "---abc--xyz---";
-	char	c = '-';
-	char	**ptr;
-	int		i;
-	int		word_count;
+// int	main(void)
+// {
+// 	char	str[] = "---abc--xyz---";
+// 	char	c = '-';
+// 	char	**ptr;
+// 	int		i;
+// 	int		word_count;
 
-	ptr = ft_split(str, c);
-	i = 0;
-	word_count = ft_countword(str, c);
-	while (i < word_count + 1)
-	{
-		printf("%s\n", ptr[i]);
-		i++;
-	}
-	ft_freemem(ptr, word_count);
-	return (0);
-}
+// 	ptr = ft_split(str, c);
+// 	i = 0;
+// 	word_count = ft_countword(str, c);
+// 	while (i < word_count + 1)
+// 	{
+// 		printf("%s\n", ptr[i]);
+// 		i++;
+// 	}
+// 	ft_freemem(ptr, word_count);
+// 	return (0);
+// }
 
 // int	main(void)
 // {
@@ -135,7 +135,9 @@ int	main(void)
 // }
 
 /* ************************************************************************** */
+// This is the second version I wrote.
 // ft_storeword allocates memory for multiple words at once.
+// I feel the first version is more readable.
 /* ************************************************************************** */
 
 // static char	**ft_freemem(char **p, int count)
@@ -216,6 +218,7 @@ int	main(void)
 // }
 
 /* ************************************************************************** */
+// This is the first version I wrote.
 // ft_storeword allocates memory for single word at once.
 // ft_split calls ft_storeword multiple times.
 /* ************************************************************************** */
