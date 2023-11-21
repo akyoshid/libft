@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/21 14:12:31 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:23:16 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,50 @@
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+static int	ft_countword(const char *s, char c)
 {
-	
+	int	count;
+
+	count = 0;
+	while (*s != '\0')
+	{
+		while (*s != '\0' && *s == c)
+			s++;
+		if (*s != '\0')
+			count++;
+		while (*s != '\0' && *s != c)
+			s++;
+	}
+	return (count);
+}
+
+// char	**ft_split(char const *s, char c)
+// {
+// 	char	**buff;
+// 	int		wordcount;
+
+// 	if (s == NULL)
+// 		return (NULL);
+// 	wordcount = ft_countword(s, c);
+// 	buff = malloc((wordcount + 1) * sizeof(char *));
+// 	if (buff == NULL)
+// 		return (NULL);
+		
+// }
+
+int	main(void)
+{
+	printf("%d\n", ft_countword("", '-'));
+	printf("%d\n", ft_countword("----", '-'));
+	printf("%d\n", ft_countword("--aa--", '-'));
+	printf("%d\n", ft_countword("--aa", '-'));
+	printf("%d\n", ft_countword("aa--", '-'));
+	printf("%d\n", ft_countword("aa--aa", '-'));
+	printf("%d\n", ft_countword("--aa--aa", '-'));
+	printf("%d\n", ft_countword("aa--aa--", '-'));
+	printf("%d\n", ft_countword("--aa--aa--", '-'));
+	printf("%d\n", ft_countword("aa--aa--aa", '-'));
+	return (0);
 }
 
 // int	main(void)
