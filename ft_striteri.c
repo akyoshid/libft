@@ -1,62 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 19:09:51 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/22 15:31:54 by akyoshid         ###   ########.fr       */
+/*   Created: 2023/11/22 14:59:43 by akyoshid          #+#    #+#             */
+/*   Updated: 2023/11/22 15:34:54 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // === DESCRIPTION ===
-// Creates a new string by repeatedly applying 'f' to each character of 's'.
+// Applies the function ’f’ on each character of the string 's'.
+// Each character is passed by address to ’f’ to be modified.
 // The function 'f' takes the index of the string 's' as its first argument
 // and uses it for manipulating characters.
 
 // === RETURN VALUE ===
-// if (s == NULL || f == NULL) → Return NULL.
+// if (s == NULL || f == NULL) → End the function.
 
-// === MAPPING ===
-// Mapping means the process of associating two things.
+// === ITERATION ===
+// Iteration means the process of repeatedly executing
+// the same operation in a specific order on multiple similar objects,
+// such as each element of an array.
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char			*buff;
 	unsigned int	i;
 
 	if (s == NULL || f == NULL)
-		return (NULL);
-	buff = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (buff == NULL)
-		return (NULL);
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{
-		buff[i] = (*f)((unsigned int)i, s[i]);
+		(*f)(i, s + i);
 		i++;
 	}
-	buff[i] = '\0';
-	return (buff);
 }
 
-// char	ft_addindex(unsigned int i, char c)
+// void	ft_addindex(unsigned int i, char *p)
 // {
-// 	return ((char)i + c);
+// 	*p += i;
 // }
 
 // int	main(void)
 // {
 // 	char	str[] = "00000";
-// 	// char	*str = NULL;
-// 	char	*ptr;
 
-// 	ptr = ft_strmapi(str, ft_addindex);
-// 	printf("Before ft_strmapi: %s\n", str);
-// 	printf("Before ft_strmapi: %s\n", ptr);
-// 	free(ptr);
+// 	printf("Before ft_striteri: %s\n", str);
+// 	ft_striteri(str, ft_addindex);
+// 	// ft_striteri(NULL, ft_addindex);
+// 	// ft_striteri(str, NULL);
+// 	// ft_striteri(NULL, NULL);
+// 	printf("After ft_striteri: %s\n", str);
 // 	return (0);
 // }
