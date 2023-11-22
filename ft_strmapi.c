@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:09:51 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/22 15:21:45 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:31:54 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*buff;
-	size_t	i;
+	char			*buff;
+	unsigned int	i;
 
 	if (s == NULL || f == NULL)
 		return (NULL);
