@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:55:13 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/23 18:36:15 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:12:23 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,42 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	new->next = *lst;
+	*lst = new;
 }
+
+// static void	ft_printlst(t_list *lst)
+// {
+// 	if (lst == NULL)
+// 	{
+// 		printf("lst is NULL.\n");
+// 		return ;
+// 	}
+// 	while (lst != NULL)
+// 	{
+// 		printf("%s\n", (char *)lst->content);
+// 		lst = lst->next;
+// 	}
+// }
+
+// int	main(void)
+// {
+// 	t_list	*head;
+
+// 	head = ft_lstnew("1");
+// 	ft_lstadd_front(&head, ft_lstnew("2"));
+// 	ft_lstadd_front(&head, ft_lstnew("3"));
+// 	ft_lstadd_front(&head, ft_lstnew("4"));
+// 	// ft_lstadd_front(NULL, ft_lstnew("2"));
+// 	// head = NULL;
+// 	// ft_lstadd_front(&head, ft_lstnew("2"));
+// 	ft_printlst(head);
+// 	return (0);
+// }
