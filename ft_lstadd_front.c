@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:55:13 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/23 19:12:53 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:44:04 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 // directly change the start of the linked list,
 // ensuring that the head pointer in the calling function
 // always points to the first node of the list.
+
+// === RETURN VALUE ===
+// if (lst == NULL) → End the function because there is no list to add `new`
+// if (new == NULL) → End the function because there is no node to add to `lst`
+// if (*lst == NULL) →
+// There is a head pointer of a list, but there are no nodes in that list yet.
+// Store the address of "new" in the head pointer and end the function.
 
 #include "libft.h"
 
