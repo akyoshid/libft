@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:05:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/23 17:54:19 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:03:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ t_list	*ft_lstnew(void *content)
 	return (buff);
 }
 
-int	main(void)
-{
-	t_list	*head;
+// int	main(void)
+// {
+// 	t_list	*head;
 
-	head = ft_lstnew("Success");
-	// head = ft_lstnew(NULL);
-	printf("%s\n", (char *)head->content);
-	free(head);
-	return (0);
-}
+// 	head = ft_lstnew("Success");
+// 	// head = ft_lstnew(NULL);
+// 	printf("%s\n", (char *)head->content);
+// 	free(head);
+// 	return (0);
+// }
