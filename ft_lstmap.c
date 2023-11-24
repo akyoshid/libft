@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 17:42:41 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/24 19:01:13 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:01:53 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,63 +46,63 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (mapped_lst);
 }
 
-static void	*ft_makeupper(void *content)
-{
-	char	*str;
-	char	*buff;
-	int		i;
+// static void	*ft_makeupper(void *content)
+// {
+// 	char	*str;
+// 	char	*buff;
+// 	int		i;
 
-	str = (char *)content;
-	buff = ft_strdup(str);
-	if (buff == NULL)
-		return (NULL);
-	i = 0;
-	while (buff[i] != '\0')
-	{
-		if (buff[i] >= 'a' && buff[i] <= 'z')
-			buff[i] -= 'a' - 'A';
-		i++;
-	}
-	return ((void *)buff);
-}
+// 	str = (char *)content;
+// 	buff = ft_strdup(str);
+// 	if (buff == NULL)
+// 		return (NULL);
+// 	i = 0;
+// 	while (buff[i] != '\0')
+// 	{
+// 		if (buff[i] >= 'a' && buff[i] <= 'z')
+// 			buff[i] -= 'a' - 'A';
+// 		i++;
+// 	}
+// 	return ((void *)buff);
+// }
 
-static void	ft_freecontent(void *content)
-{
-	free(content);
-}
+// static void	ft_freecontent(void *content)
+// {
+// 	free(content);
+// }
 
-static void	ft_printlst(t_list *lst)
-{
-	if (lst == NULL)
-	{
-		printf("lst is NULL.\n");
-		return ;
-	}
-	while (lst != NULL)
-	{
-		printf("%s\n", (char *)lst->content);
-		lst = lst->next;
-	}
-}
+// static void	ft_printlst(t_list *lst)
+// {
+// 	if (lst == NULL)
+// 	{
+// 		printf("lst is NULL.\n");
+// 		return ;
+// 	}
+// 	while (lst != NULL)
+// 	{
+// 		printf("%s\n", (char *)lst->content);
+// 		lst = lst->next;
+// 	}
+// }
 
-int	main(void)
-{
-	t_list	*head;
-	t_list	*mapped_head;
-	char	str1[] = "forty";
-	char	str2[] = "two";
-	char	str3[] = "tokyo";
+// int	main(void)
+// {
+// 	t_list	*head;
+// 	t_list	*mapped_head;
+// 	char	str1[] = "forty";
+// 	char	str2[] = "two";
+// 	char	str3[] = "tokyo";
 
-	head = ft_lstnew(str1);
-	ft_lstadd_back(&head, ft_lstnew(str2));
-	ft_lstadd_back(&head, ft_lstnew(str3));
-	printf("Before ft_lstiter:\n");
-	printf("%p\n", head);
-	ft_printlst(head);
-	mapped_head = ft_lstmap(head, ft_makeupper, ft_freecontent);
-	printf("After ft_lstiter:\n");
-	printf("%p\n", mapped_head);
-	ft_printlst(mapped_head);
-	ft_lstclear(&mapped_head, ft_freecontent);
-	return (0);
-}
+// 	head = ft_lstnew(str1);
+// 	ft_lstadd_back(&head, ft_lstnew(str2));
+// 	ft_lstadd_back(&head, ft_lstnew(str3));
+// 	printf("Before ft_lstiter:\n");
+// 	printf("%p\n", head);
+// 	ft_printlst(head);
+// 	mapped_head = ft_lstmap(head, ft_makeupper, ft_freecontent);
+// 	printf("After ft_lstiter:\n");
+// 	printf("%p\n", mapped_head);
+// 	ft_printlst(mapped_head);
+// 	ft_lstclear(&mapped_head, ft_freecontent);
+// 	return (0);
+// }
