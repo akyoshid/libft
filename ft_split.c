@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:47:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/21 15:31:11 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:05:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
 
 #include "libft.h"
 
-static char	**ft_freemem(char **p, int last_index)
+static char	**ft_freemem(char ***p, int last_index)
 {
 	int	i;
 
 	i = 0;
 	while (i < last_index)
 	{
-		free(p[i]);
-		p[i] = NULL;
+		free((*p)[i]);
+		(*p)[i] = NULL;
 		i++;
 	}
-	free(p);
-	p = NULL;
+	free(*p);
+	*p = NULL;
 	return (NULL);
 }
 
@@ -92,7 +92,7 @@ char	**ft_split(char const *s, char c)
 		{
 			buff[i] = ft_storeword(&s, c);
 			if (buff[i] == NULL)
-				return (ft_freemem(buff, i));
+				return (ft_freemem(&buff, i));
 			i++;
 		}
 	}
@@ -116,7 +116,7 @@ char	**ft_split(char const *s, char c)
 // 		printf("%s\n", ptr[i]);
 // 		i++;
 // 	}
-// 	ft_freemem(ptr, word_count);
+// 	ft_freemem(&ptr, word_count);
 // 	return (0);
 // }
 
