@@ -6,13 +6,14 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:15:38 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/24 16:41:48 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:47:49 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // === DESCRIPTION ===
-// Deletes and frees the given node and every successor of that node,
-// using the function ’del’ and free.
+// Use the function `del` to free the content of the node,
+// and then free the node itself.
+// Execute this on the given node & every successor of that node.
 // Finally, the pointer to the list must be set to NULL.
 
 #include "libft.h"
