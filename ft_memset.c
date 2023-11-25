@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:00:53 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/17 21:08:58 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/25 12:50:21 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		ptr[i] = c;
+		ptr[i] = ch;
 		i++;
 	}
 	return (b);
