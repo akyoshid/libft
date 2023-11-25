@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:33:49 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/21 19:03:14 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:27:21 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		return (ft_strdup("0"));
 	digit = ft_countdigit(n);
-	buff = malloc((digit + 1) & sizeof(char));
+	buff = malloc((digit + 1) * sizeof(char));
 	if (buff == NULL)
 		return (NULL);
 	return (ft_storenum(buff, n, digit));

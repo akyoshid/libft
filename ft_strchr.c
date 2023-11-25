@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 09:56:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/18 10:29:29 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/25 14:57:03 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ char	*ft_strchr(const char *s, int c)
 	char	ch;
 
 	ch = (char)c;
-	while (*s)
+	while (1)
 	{
 		if (*s == ch)
 			return ((char *)s);
+		if (*s == '\0')
+			return (NULL);
 		s++;
 	}
-	return (NULL);
 }
 
 // int	main(void)
