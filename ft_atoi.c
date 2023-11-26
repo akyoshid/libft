@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:51:09 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/18 16:28:53 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/11/26 13:56:29 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	ft_atoi(const char *str)
 	num = 0;
 	while (*str >= '0' && *str <= '9')
 	{
-		if (sign == 1 
+		if (sign == 1
 			&& (num > LONG_MAX / 10 || (num == LONG_MAX / 10 && *str >= '7')))
 			return ((int)LONG_MAX);
-		if (sign == -1 
+		if (sign == -1
 			&& (num > LONG_MAX / 10 || (num == LONG_MAX / 10 && *str >= '8')))
 			return ((int)LONG_MIN);
 		num = num * 10 + (*str - '0');
