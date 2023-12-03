@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:09:51 by akyoshid          #+#    #+#             */
-/*   Updated: 2023/11/22 15:31:54 by akyoshid         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:44:34 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i] != '\0')
 	{
-		buff[i] = (*f)((unsigned int)i, s[i]);
+		buff[i] = (*f)(i, s[i]);
 		i++;
 	}
 	buff[i] = '\0';
@@ -56,7 +56,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 // 	ptr = ft_strmapi(str, ft_addindex);
 // 	printf("Before ft_strmapi: %s\n", str);
-// 	printf("Before ft_strmapi: %s\n", ptr);
+// 	printf("After ft_strmapi: %s\n", ptr);
 // 	free(ptr);
 // 	return (0);
 // }
