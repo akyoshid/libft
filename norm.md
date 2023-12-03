@@ -2,9 +2,7 @@
 
 This document describes the applicable standard (Norm) at 42. A programming standard defines a set of rules to follow when writing code. The Norm applies to all C projects within the Common Core by default, and to any project where it’s specified.
 
----
-
-## 1. **Denomination**
+## 1. Denomination
 
 - A structure’s name must start by s_.
 - A typedef’s name must start by t_.
@@ -18,7 +16,7 @@ This document describes the applicable standard (Norm) at 42. A programming stan
 - All identifiers (functions, macros, types, variables, etc.) must be in English.
 - Using global variables that are not marked const and static is forbidden and is considered a norm error, unless the project explicitly allows them.
 
-## **2. Formatting**
+## 2. Formatting
 
 - You must indent your code with 4-space tabulations. This is not the same as 4 average spaces, we’re talking about real tabulations here.
 - Each function must be maximum 25 lines, not counting the function’s own curly brackets.
@@ -43,7 +41,7 @@ This document describes the applicable standard (Norm) at 42. A programming stan
 - Control structures (if, while..) must have braces, unless they contain a single line.
 - Braces following functions, declarators or control structures must be preceded and followed by a newline.
 
-## **3. Functions**
+## 3. Functions
 
 - A function can take 4 named parameters maximum.
 - A function that doesn’t take arguments must be explicitly prototyped with the word "void" as the argument.
@@ -53,7 +51,7 @@ This document describes the applicable standard (Norm) at 42. A programming stan
 - Return of a function has to be between parenthesis.
 - Each function must have a single tabulation between its return type and its name.
 
-## **4. Typedef, struct, enum and union**
+## 4. Typedef, struct, enum and union
 
 - Add a tabulation when declaring a struct, enum or union.
 - When declaring a variable of type struct, enum or union, add a single space in the type.
@@ -61,7 +59,7 @@ This document describes the applicable standard (Norm) at 42. A programming stan
 - Typedef name must be preceded by a tab.
 - You must indent all structures’ names on the same column for their scope.
 
-## 5**. Macros and Pre-processors**
+## 5. Macros and Pre-processors
 
 - Preprocessor constants (or #define) you create must be used only for literal and constant values.
 - You can use macros available in standard libraries, only if those ones are allowed in the scope of the given project.
@@ -70,7 +68,7 @@ This document describes the applicable standard (Norm) at 42. A programming stan
 - You must indent characters following #if, #ifdef or #ifndef.
 - Preprocessor instructions are forbidden outside of global scope
 
-## 6**. Forbidden stuff!**
+## 6. Forbidden stuff!
 
 - You’re not allowed to use a ‘for' loop.
 - You’re not allowed to use a 'do...while' loop.
